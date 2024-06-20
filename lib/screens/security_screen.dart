@@ -1,30 +1,32 @@
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../util/app_constant.dart';
 
-class SecurityScreen extends StatefulWidget{
-  _securityScreenState createState() => _securityScreenState();
+class SecurityScreen extends StatefulWidget {
+  const SecurityScreen({super.key});
+
+  @override
+  State<SecurityScreen> createState() => _SecurityScreenState();
 }
 
-class _securityScreenState extends State<SecurityScreen>{
-  bool display_password_form = false;
+class _SecurityScreenState extends State<SecurityScreen> {
+  bool displayPasswordForm = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Security'),
+        title: const Text('Security'),
         backgroundColor: AppConstants.primaryColor,
         foregroundColor: Colors.white,
       ),
       body: Padding(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            SizedBox(height: 30,),
-            Row(
+            const SizedBox(
+              height: 30,
+            ),
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
@@ -36,48 +38,54 @@ class _securityScreenState extends State<SecurityScreen>{
                 ),
               ],
             ),
-            SizedBox(height: 50,),
+            const SizedBox(
+              height: 50,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Password"),
                     Text("Set a unique password to protect your account")
                   ],
                 ),
-               ElevatedButton(
-                 onPressed: () {
-                   setState(() {
-                     display_password_form = true;
-                   });
-                 },
-                 child: Text("Edit", style: TextStyle(color: Colors.white),),
-                 style: ButtonStyle(
-                   backgroundColor: MaterialStatePropertyAll<Color>(AppConstants.primaryColor),
-                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                     RoundedRectangleBorder(
-                       borderRadius: BorderRadius.circular(8.0),
-                     )),
-                 ),
-               ),
-
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      displayPasswordForm = true;
+                    });
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll<Color>(
+                        AppConstants.primaryColor),
+                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    )),
+                  ),
+                  child: const Text(
+                    "Edit",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
               ],
             ),
-            SizedBox(height: 50,),
-            display_password_form ? ChangePasswordForm() : SizedBox(),
+            const SizedBox(
+              height: 50,
+            ),
+            displayPasswordForm ? const ChangePasswordForm() : const SizedBox(),
           ],
         ),
       ),
     );
   }
-
 }
 
-
-
 class ChangePasswordForm extends StatelessWidget {
+  const ChangePasswordForm({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -85,39 +93,44 @@ class ChangePasswordForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextField(
+          const TextField(
             obscureText: true,
             decoration: InputDecoration(
               labelText: 'Old Password',
               border: OutlineInputBorder(),
             ),
           ),
-          SizedBox(height: 16.0),
-          TextField(
+          const SizedBox(height: 16.0),
+          const TextField(
             obscureText: true,
             decoration: InputDecoration(
               labelText: 'New Password',
               border: OutlineInputBorder(),
             ),
           ),
-          SizedBox(height: 16.0),
-          TextField(
+          const SizedBox(height: 16.0),
+          const TextField(
             obscureText: true,
             decoration: InputDecoration(
               labelText: 'Confirm Password',
               border: OutlineInputBorder(),
             ),
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Center(
             child: ElevatedButton(
               onPressed: () {
                 // Add save password logic here
               },
-              child: Text('Save password',style: TextStyle(color: Colors.white),),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppConstants.primaryColor, // Button background color
-                padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 12.0),
+                backgroundColor:
+                    AppConstants.primaryColor, // Button background color
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 32.0, vertical: 12.0),
+              ),
+              child: const Text(
+                'Save password',
+                style: TextStyle(color: Colors.white),
               ),
             ),
           )

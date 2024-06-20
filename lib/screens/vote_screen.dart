@@ -1,15 +1,16 @@
-import 'package:ballotchain/util/api_url.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../util/app_constant.dart';
-import '../widgets/bottom_navigation_bar.dart';
-import '../widgets/floating_button.dart';
-import '../widgets/side_bar.dart';
+import 'package:ballotchain/util/api_url.dart';
+import 'package:ballotchain/util/app_constant.dart';
+import 'package:ballotchain/widgets/bottom_navigation_bar.dart';
+import 'package:ballotchain/widgets/floating_button.dart';
+import 'package:ballotchain/widgets/side_bar.dart';
 
 class VoteScreen extends StatefulWidget {
+  const VoteScreen({super.key});
+
   @override
-  _VoteScreenState createState() => _VoteScreenState();
+  State<VoteScreen> createState() => _VoteScreenState();
 }
 
 class _VoteScreenState extends State<VoteScreen> {
@@ -19,10 +20,10 @@ class _VoteScreenState extends State<VoteScreen> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Vote'),
+          title: const Text('Vote'),
           backgroundColor: AppConstants.primaryColor,
           foregroundColor: Colors.white,
-          bottom: TabBar(
+          bottom: const TabBar(
             tabs: <Widget>[
               Tab(
                 child: Text(
@@ -61,7 +62,7 @@ class _VoteScreenState extends State<VoteScreen> {
         ),
         drawer: SideBar(),
         bottomNavigationBar: BottomNavBar(position: 1),
-        floatingActionButton: CustomFloatingButton(),
+        floatingActionButton: const CustomFloatingButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: TabBarView(
           children: <Widget>[
@@ -131,38 +132,40 @@ class OngoingVoteListWidget extends StatelessWidget {
     ),
   ];
 
+  OngoingVoteListWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10.0),
       itemCount: votes.length,
       itemBuilder: (context, index) {
         final vote = votes[index];
         return Card(
-          margin: EdgeInsets.symmetric(vertical: 5.0),
+          margin: const EdgeInsets.symmetric(vertical: 5.0),
           child: Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Row(
               children: [
                 Image.network(
-                  ApiUrl.profile_url, // Replace with your asset images
+                  ApiUrl.profileUrl, // Replace with your asset images
                   width: 50,
                   height: 50,
                   fit: BoxFit.cover,
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         vote.title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       Text('Category: ${vote.category}'),
                       Text('Start Date: ${vote.startDate}'),
                       Text('End Date: ${vote.endDate}'),
@@ -171,14 +174,14 @@ class OngoingVoteListWidget extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    Text('Nominees'),
+                    const Text('Nominees'),
                     Text('${vote.nominees}'),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     ElevatedButton(
                       onPressed: () {
                         // Add vote handling code here
                       },
-                      child: Text('Vote Now'),
+                      child: const Text('Vote Now'),
                     ),
                   ],
                 ),
@@ -230,38 +233,40 @@ class UpcomingVoteListWidget extends StatelessWidget {
     ),
   ];
 
+  UpcomingVoteListWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10.0),
       itemCount: votes.length,
       itemBuilder: (context, index) {
         final vote = votes[index];
         return Card(
-          margin: EdgeInsets.symmetric(vertical: 5.0),
+          margin: const EdgeInsets.symmetric(vertical: 5.0),
           child: Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Row(
               children: [
                 Image.network(
-                  ApiUrl.profile_url, // Replace with your asset images
+                  ApiUrl.profileUrl, // Replace with your asset images
                   width: 50,
                   height: 50,
                   fit: BoxFit.cover,
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         vote.title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       Text('Category: ${vote.category}'),
                       Text('Start Date: ${vote.startDate}'),
                       Text('End Date: ${vote.endDate}'),
@@ -270,22 +275,26 @@ class UpcomingVoteListWidget extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    Text('Nominees'),
+                    const Text('Nominees'),
                     Text('${vote.nominees}'),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.black, backgroundColor: Colors.grey[200], // Text color
-                        side: BorderSide(color: Colors.grey), // Border color
+                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.grey[200], // Text color
+                        side: const BorderSide(
+                            color: Colors.grey), // Border color
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10), // Rounded corners
+                          borderRadius:
+                              BorderRadius.circular(10), // Rounded corners
                         ),
-                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10),
                       ),
                       onPressed: () {
                         // Add vote handling code here
                       },
-                      child: Text('Vote Now'),
+                      child: const Text('Vote Now'),
                     ),
                   ],
                 ),
@@ -297,7 +306,6 @@ class UpcomingVoteListWidget extends StatelessWidget {
     );
   }
 }
-
 
 class ClosedVoteListWidget extends StatelessWidget {
   final List<VoteItem> votes = [
@@ -338,38 +346,40 @@ class ClosedVoteListWidget extends StatelessWidget {
     ),
   ];
 
+  ClosedVoteListWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10.0),
       itemCount: votes.length,
       itemBuilder: (context, index) {
         final vote = votes[index];
         return Card(
-          margin: EdgeInsets.symmetric(vertical: 5.0),
+          margin: const EdgeInsets.symmetric(vertical: 5.0),
           child: Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Row(
               children: [
                 Image.network(
-                  ApiUrl.profile_url, // Replace with your asset images
+                  ApiUrl.profileUrl, // Replace with your asset images
                   width: 50,
                   height: 50,
                   fit: BoxFit.cover,
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         vote.title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       Text('Category: ${vote.category}'),
                       Text('Start Date: ${vote.startDate}'),
                       Text('End Date: ${vote.endDate}'),
@@ -378,14 +388,14 @@ class ClosedVoteListWidget extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    Text('Nominees'),
+                    const Text('Nominees'),
                     Text('${vote.nominees}'),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     ElevatedButton(
                       onPressed: () {
                         // Add vote handling code here
                       },
-                      child: Text('Vote Now'),
+                      child: const Text('Vote Now'),
                     ),
                   ],
                 ),
@@ -397,7 +407,6 @@ class ClosedVoteListWidget extends StatelessWidget {
     );
   }
 }
-
 
 class VoteItem2 {
   final String category;
@@ -461,26 +470,28 @@ class VoteHistoryListWidget extends StatelessWidget {
     ),
   ];
 
+  VoteHistoryListWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10.0),
       itemCount: votes.length,
       itemBuilder: (context, index) {
         final vote = votes[index];
         return Card(
-          margin: EdgeInsets.symmetric(vertical: 5.0),
+          margin: const EdgeInsets.symmetric(vertical: 5.0),
           child: Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Row(
               children: [
                 Image.network(
-                  ApiUrl.profile_url, // Replace with your asset images
+                  ApiUrl.profileUrl, // Replace with your asset images
                   width: 50,
                   height: 50,
                   fit: BoxFit.cover,
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -502,12 +513,12 @@ class VoteHistoryListWidget extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     TextButton(
                       onPressed: () {
                         // Add view on BallotChain scan handling code here
                       },
-                      child: Text(
+                      child: const Text(
                         'View on BallotChain Scan',
                         style: TextStyle(
                           color: Colors.blue,

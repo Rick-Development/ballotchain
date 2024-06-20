@@ -6,39 +6,43 @@ import '../widgets/floating_button.dart';
 import '../widgets/side_bar.dart';
 
 class ResultScreen extends StatefulWidget {
+  const ResultScreen({super.key});
+
   @override
-  _ResultState createState() => _ResultState();
+  State<ResultScreen> createState() => _ResultScreenState();
 }
 
-class _ResultState extends State<ResultScreen> {
+class _ResultScreenState extends State<ResultScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Results'),
+        title: const Text('Results'),
         backgroundColor: AppConstants.primaryColor,
         foregroundColor: Colors.white,
       ),
       drawer: SideBar(),
-      bottomNavigationBar: BottomNavBar(position: 2,),
-      floatingActionButton: CustomFloatingButton(),
+      bottomNavigationBar: BottomNavBar(
+        position: 2,
+      ),
+      floatingActionButton: const CustomFloatingButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            Text(
+            const Text(
               'Filter By',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             // Add filter widget here
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'Vote: Movie Awards',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             buildVoteChartCard(
               title: 'Best Actor Vote Chart',
               totalVotes: '600 total',
@@ -56,7 +60,7 @@ class _ResultState extends State<ResultScreen> {
                 'Funke Akindele'
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             buildVoteChartCard(
               title: 'Best Movie Vote Chart',
               totalVotes: '600 total',
@@ -74,7 +78,7 @@ class _ResultState extends State<ResultScreen> {
                 'Funke Akindele'
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             buildVoteChartCard(
               title: 'Best Lead Role Vote Chart',
               totalVotes: '600 total',
@@ -115,11 +119,13 @@ class _ResultState extends State<ResultScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-            SizedBox(height: 8),
+            Text(title,
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 8),
             Text(totalVotes),
-            SizedBox(height: 8),
-            Container(
+            const SizedBox(height: 8),
+            SizedBox(
               height: 200,
               child: BarChart(
                 BarChartData(
@@ -150,7 +156,7 @@ class _ResultState extends State<ResultScreen> {
                     ),
                   ],
                   borderData: FlBorderData(show: false),
-                  titlesData: FlTitlesData(
+                  titlesData: const FlTitlesData(
                     leftTitles: AxisTitles(
                       sideTitles: SideTitles(showTitles: true),
                     ),
@@ -161,17 +167,15 @@ class _ResultState extends State<ResultScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text('Category: $category'),
             Text('Vote Status: $status'),
             Text('Start Date: $startDate'),
             Text('End Date: $endDate'),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: candidates
-                  .map((candidate) => Text(candidate))
-                  .toList(),
+              children: candidates.map((candidate) => Text(candidate)).toList(),
             ),
           ],
         ),

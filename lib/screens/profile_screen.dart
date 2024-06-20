@@ -5,16 +5,18 @@ import '../util/api_url.dart';
 import '../util/app_constant.dart';
 
 class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
+
   @override
-  _ProfileScreenState createState() => _ProfileScreenState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
   File? _image;
 
   Future<void> _pickImage() async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
     if (image != null) {
       setState(() {
@@ -27,7 +29,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
         backgroundColor: Colors.white,
         elevation: 0,
       ),
@@ -46,72 +47,76 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         CircleAvatar(
                           radius: 50,
                           backgroundImage: _image == null
-                              ? NetworkImage(ApiUrl.profile_url)
+                              ? NetworkImage(ApiUrl.profileUrl)
                               : FileImage(_image!) as ImageProvider,
                         ),
-                        Spacer(),
+                        const Spacer(),
                         IconButton(
-                          icon: Icon(Icons.edit, color: Colors.white),
+                          icon: const Icon(Icons.edit, color: Colors.white),
                           onPressed: _pickImage,
                           color: Colors.blue,
                         ),
                       ],
                     ),
-                    SizedBox(height: 24),
-                    Text(
+                    const SizedBox(height: 24),
+                    const Text(
                       'Name',
                       style: TextStyle(fontSize: 16, color: Colors.grey),
                     ),
-                    TextField(
+                    const TextField(
                       decoration: InputDecoration(
                         hintText: 'Enter Full Name',
                         border: OutlineInputBorder(),
                         contentPadding: EdgeInsets.symmetric(horizontal: 16),
                       ),
                     ),
-                    SizedBox(height: 16),
-                    Text(
+                    const SizedBox(height: 16),
+                    const Text(
                       'Email',
                       style: TextStyle(fontSize: 16, color: Colors.grey),
                     ),
-                    TextField(
+                    const TextField(
                       decoration: InputDecoration(
                         hintText: 'Enter Email',
                         border: OutlineInputBorder(),
                         contentPadding: EdgeInsets.symmetric(horizontal: 16),
                       ),
                     ),
-                    SizedBox(height: 26),
-                    Text(
+                    const SizedBox(height: 26),
+                    const Text(
                       'Phone Number',
                       style: TextStyle(fontSize: 16, color: Colors.grey),
                     ),
-                    TextField(
+                    const TextField(
                       decoration: InputDecoration(
                         hintText: 'Enter Phone Number',
                         border: OutlineInputBorder(),
                         contentPadding: EdgeInsets.symmetric(horizontal: 16),
                       ),
                     ),
-                    SizedBox(height: 50),
+                    const SizedBox(height: 50),
                     Padding(
                       padding: EdgeInsets.zero,
-                      child: SizedBox(  // Wrap ElevatedButton with SizedBox to make it full width
+                      child: SizedBox(
+                        // Wrap ElevatedButton with SizedBox to make it full width
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
                             // onPressed callback function
                           },
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(AppConstants.primaryColor),
-                            foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            backgroundColor: WidgetStateProperty.all<Color>(
+                                AppConstants.primaryColor),
+                            foregroundColor:
+                                WidgetStateProperty.all<Color>(Colors.white),
+                            shape:
+                                WidgetStateProperty.all<RoundedRectangleBorder>(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15.0),
                               ),
                             ),
                           ),
-                          child: Text("Update Profile"),
+                          child: const Text("Update Profile"),
                         ),
                       ),
                     ),

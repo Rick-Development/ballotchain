@@ -2,30 +2,30 @@ import 'dart:async';
 
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:circular_reveal_animation/circular_reveal_animation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+
+import 'package:ballotchain/screens/dashboard.dart';
 import 'package:ballotchain/screens/results_screen.dart';
 import 'package:ballotchain/screens/settings_screen.dart';
 import 'package:ballotchain/screens/vote_screen.dart';
 import 'package:ballotchain/screens/wallet_screen.dart';
 import 'package:ballotchain/util/app_constant.dart';
-import 'package:circular_reveal_animation/circular_reveal_animation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-
-import '../screens/dashboard.dart';
-
-
-
 
 class BottomNavBar extends StatefulWidget {
   int position = 0;
-  BottomNavBar({required this.position});
+  BottomNavBar({
+    super.key,
+    required this.position,
+  });
 
   @override
-  _BottomNavBarState createState() => _BottomNavBarState(position: position);
+  State<BottomNavBar> createState() => _BottomNavBarState(position: position);
 }
 
-class _BottomNavBarState extends State<BottomNavBar> with
-    TickerProviderStateMixin {
+class _BottomNavBarState extends State<BottomNavBar>
+    with TickerProviderStateMixin {
   int position = 0;
   _BottomNavBarState({required this.position});
   final autoSizeGroup = AutoSizeGroup();
@@ -46,31 +46,31 @@ class _BottomNavBarState extends State<BottomNavBar> with
     Icons.settings,
   ];
 
-  final  screens = [
-    DashboardScreen(),
-    WalletScreen(),
-    DashboardScreen(),
-    WalletScreen()
+  final screens = [
+    const DashboardScreen(),
+    const WalletScreen(),
+    const DashboardScreen(),
+    const WalletScreen()
   ];
   @override
   void initState() {
     super.initState();
 
     _fabAnimationController = AnimationController(
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       vsync: this,
     );
     _borderRadiusAnimationController = AnimationController(
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       vsync: this,
     );
     fabCurve = CurvedAnimation(
       parent: _fabAnimationController,
-      curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
+      curve: const Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
     );
     borderRadiusCurve = CurvedAnimation(
       parent: _borderRadiusAnimationController,
-      curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
+      curve: const Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
     );
 
     fabAnimation = Tween<double>(begin: 0, end: 1).animate(fabCurve);
@@ -79,17 +79,17 @@ class _BottomNavBarState extends State<BottomNavBar> with
     );
 
     _hideBottomBarAnimationController = AnimationController(
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       vsync: this,
     );
 
     Future.delayed(
-      Duration(seconds: 1),
-          () => _fabAnimationController.forward(),
+      const Duration(seconds: 1),
+      () => _fabAnimationController.forward(),
     );
     Future.delayed(
-      Duration(seconds: 1),
-          () => _borderRadiusAnimationController.forward(),
+      const Duration(seconds: 1),
+      () => _borderRadiusAnimationController.forward(),
     );
   }
 
@@ -114,94 +114,98 @@ class _BottomNavBarState extends State<BottomNavBar> with
 
   @override
   Widget build(BuildContext context) {
-    final colors = Colors.green;
+    // const colors = Colors.green;
     String title = '';
     return AnimatedBottomNavigationBar.builder(
-        itemCount: iconList.length,
-        tabBuilder: (int index, bool isActive) {
-          switch(index){
-            case 0:
-              title = 'Dashboard';
-            case 1:
-              title = 'Vote';
-            case 2:
-              title = 'Result';
-            case 3:
-              title = 'Settings';
-          }
-          final color = isActive
-              ? Colors.white
-              : Color(0XFF44A1FC);
-          return Padding(
-            padding: EdgeInsets.all(0),
+      itemCount: iconList.length,
+      tabBuilder: (int index, bool isActive) {
+        switch (index) {
+          case 0:
+            title = 'Dashboard';
+          case 1:
+            title = 'Vote';
+          case 2:
+            title = 'Result';
+          case 3:
+            title = 'Settings';
+        }
+        final color = isActive ? Colors.white : const Color(0XFF44A1FC);
+        return Padding(
+            padding: const EdgeInsets.all(0),
             child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                iconList[index],
-                size: 24,
-                color: color,
-              ),
-              const SizedBox(height: 4),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: AutoSizeText(
-                  title,
-                  maxLines: 1,
-                  style: TextStyle(color: color),
-                  group: autoSizeGroup,
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  iconList[index],
+                  size: 24,
+                  color: color,
                 ),
+                const SizedBox(height: 4),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: AutoSizeText(
+                    title,
+                    maxLines: 1,
+                    style: TextStyle(color: color),
+                    group: autoSizeGroup,
+                  ),
+                )
+              ],
+            ));
+      },
+      backgroundColor: AppConstants.primaryColor,
+      activeIndex: _bottomNavIndex,
+      splashColor: Colors.tealAccent,
+      notchAndCornersAnimation: borderRadiusAnimation,
+      splashSpeedInMilliseconds: 300,
+      notchSmoothness: NotchSmoothness.defaultEdge,
+      gapLocation: GapLocation.center,
+      // leftCornerRadius: 32,
+      // rightCornerRadius: 32,
+      onTap: (index) => {
+        index == 0
+            ? Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const DashboardScreen()),
               )
-            ],
-          )
-          );
-        },
-        backgroundColor: AppConstants.primaryColor,
-        activeIndex: _bottomNavIndex,
-        splashColor: Colors.tealAccent,
-        notchAndCornersAnimation: borderRadiusAnimation,
-        splashSpeedInMilliseconds: 300,
-        notchSmoothness: NotchSmoothness.defaultEdge,
-        gapLocation: GapLocation.center,
-        // leftCornerRadius: 32,
-        // rightCornerRadius: 32,
-        onTap: (index) => {
-          index == 0 ?  Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => DashboardScreen()),
-        ) :
-          index == 1 ? Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => VoteScreen()),
-          )  :
-          index == 2 ? Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => ResultScreen()),
-          )  :Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => SettingsScreen()),
-          ) ,
-          setState(() => _bottomNavIndex = position),
-          },
-        hideAnimationController: _hideBottomBarAnimationController,
-        shadow: BoxShadow(
-          offset: Offset(0, 1),
-          blurRadius: 12,
-          spreadRadius: 0.5,
-          color: Colors.white,
-        ),
-      );
+            : index == 1
+                ? Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const VoteScreen()),
+                  )
+                : index == 2
+                    ? Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ResultScreen()),
+                      )
+                    : Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SettingsScreen()),
+                      ),
+        setState(() => _bottomNavIndex = position),
+      },
+      hideAnimationController: _hideBottomBarAnimationController,
+      shadow: const BoxShadow(
+        offset: Offset(0, 1),
+        blurRadius: 12,
+        spreadRadius: 0.5,
+        color: Colors.white,
+      ),
+    );
   }
 }
 
 class NavigationScreen extends StatefulWidget {
   final IconData iconData;
 
-  NavigationScreen(this.iconData) : super();
+  const NavigationScreen(this.iconData, {super.key});
 
   @override
-  _NavigationScreenState createState() => _NavigationScreenState();
+  State<NavigationScreen> createState() => _NavigationScreenState();
 }
 
 class _NavigationScreenState extends State<NavigationScreen>
@@ -221,7 +225,7 @@ class _NavigationScreenState extends State<NavigationScreen>
   void initState() {
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1000),
+      duration: const Duration(milliseconds: 1000),
     );
     animation = CurvedAnimation(
       parent: _controller,
@@ -234,7 +238,7 @@ class _NavigationScreenState extends State<NavigationScreen>
   _startAnimation() {
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1000),
+      duration: const Duration(milliseconds: 1000),
     );
     animation = CurvedAnimation(
       parent: _controller,
@@ -251,16 +255,16 @@ class _NavigationScreenState extends State<NavigationScreen>
 
   @override
   Widget build(BuildContext context) {
-    final colors = Colors.white;
+    // const colors = Colors.white;
     return Container(
-      color: Theme.of(context).colorScheme.background,
+      color: Theme.of(context).colorScheme.surface,
       child: ListView(
         children: [
-          SizedBox(height: 64),
+          const SizedBox(height: 64),
           Center(
             child: CircularRevealAnimation(
               animation: animation,
-              centerOffset: Offset(80, 80),
+              centerOffset: const Offset(80, 80),
               maxRadius: MediaQuery.of(context).size.longestSide * 1.1,
               child: Icon(
                 widget.iconData,

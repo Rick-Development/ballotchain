@@ -1,22 +1,22 @@
+import 'package:flutter/material.dart';
+
 import 'package:ballotchain/screens/dashboard.dart';
 import 'package:ballotchain/screens/results_screen.dart';
 import 'package:ballotchain/screens/settings_screen.dart';
 import 'package:ballotchain/screens/vote_screen.dart';
+import 'package:ballotchain/screens/wallet_screen.dart';
 import 'package:ballotchain/util/app_constant.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
-import '../screens/wallet_screen.dart';
 
 class SideBar extends StatefulWidget {
-  sideBarState createState() => sideBarState();
-}
-
-
-  class sideBarState extends State<SideBar> {
+  const SideBar({super.key});
 
   @override
-  Widget build(BuildContext context){
+  State<SideBar> createState() => _SideBarState();
+}
+
+class _SideBarState extends State<SideBar> {
+  @override
+  Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         children: [
@@ -24,73 +24,75 @@ class SideBar extends StatefulWidget {
             decoration: BoxDecoration(
               color: AppConstants.primaryColor,
             ),
-            accountName: Text('Mikel O'),
-            accountEmail: Text('mikel.o@example.com'),
-            currentAccountPicture: CircleAvatar(
+            accountName: const Text('Mikel O'),
+            accountEmail: const Text('mikel.o@example.com'),
+            currentAccountPicture: const CircleAvatar(
               backgroundColor: Colors.white,
               child: Text('M'),
             ),
           ),
           ListTile(
-            title: Text('Overview'),
-            leading: Icon(Icons.dashboard),
+            title: const Text('Overview'),
+            leading: const Icon(Icons.dashboard),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => DashboardScreen()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const DashboardScreen()));
             },
           ),
           ListTile(
-            title: Text('Vote'),
-            leading: Icon(Icons.how_to_vote),
+            title: const Text('Vote'),
+            leading: const Icon(Icons.how_to_vote),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => VoteScreen()),
+                MaterialPageRoute(builder: (context) => const VoteScreen()),
               );
             },
           ),
           ListTile(
-            title: Text('Result'),
-            leading: Icon(Icons.bar_chart),
+            title: const Text('Result'),
+            leading: const Icon(Icons.bar_chart),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ResultScreen()),
+                MaterialPageRoute(builder: (context) => const ResultScreen()),
               );
             },
           ),
           ListTile(
-            title: Text('My Wallet'),
-            leading: Icon(Icons.account_balance_wallet),
+            title: const Text('My Wallet'),
+            leading: const Icon(Icons.account_balance_wallet),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => WalletScreen()),
+                MaterialPageRoute(builder: (context) => const WalletScreen()),
               );
             },
           ),
           ListTile(
-            title: Text('Vote Conversion'),
-            leading: Icon(Icons.add_chart_outlined),
+            title: const Text('Vote Conversion'),
+            leading: const Icon(Icons.add_chart_outlined),
             onTap: () {},
           ),
           ListTile(
-            title: Text('Settings'),
-            leading: Icon(Icons.settings),
+            title: const Text('Settings'),
+            leading: const Icon(Icons.settings),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SettingsScreen()),
+                MaterialPageRoute(builder: (context) => const SettingsScreen()),
               );
             },
           ),
           ListTile(
-            title: Text('Log out'),
-            leading: Icon(Icons.logout),
+            title: const Text('Log out'),
+            leading: const Icon(Icons.logout),
             onTap: () {},
           ),
         ],
       ),
     );
-}
+  }
 }

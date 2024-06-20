@@ -1,40 +1,44 @@
-import 'package:ballotchain/util/app_constant.dart';
-import 'package:ballotchain/widgets/side_bar.dart';
-import 'package:ballotchain/widgets/bottom_navigation_bar.dart';
 import 'package:cupertino_modal_sheet/cupertino_modal_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/floating_button.dart';
+import 'package:ballotchain/util/app_constant.dart';
+import 'package:ballotchain/widgets/bottom_navigation_bar.dart';
+import 'package:ballotchain/widgets/floating_button.dart';
+import 'package:ballotchain/widgets/side_bar.dart';
 
 class WalletScreen extends StatelessWidget {
+  const WalletScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Wallet'),
+        title: const Text('Wallet'),
         backgroundColor: AppConstants.primaryColor,
         foregroundColor: Colors.white,
       ),
       drawer: SideBar(),
-      floatingActionButton: CustomFloatingButton(),
+      floatingActionButton: const CustomFloatingButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomNavBar(position: 0,),
+      bottomNavigationBar: BottomNavBar(
+        position: 0,
+      ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Total Balance',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Container(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                   colors: [
                     Color(0XFF03211A),
                     Color(0XFF3C0A0A),
@@ -46,36 +50,39 @@ class WalletScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     '10,000 Ballot Points (BP)',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
                   ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   Center(
-                    child:ElevatedButton(
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
-                            ),
-                          ),
+                      child: ElevatedButton(
+                    style: ButtonStyle(
+                      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                              10.0), // Adjust the radius as needed
                         ),
-                        onPressed: () {
-                          // Add fund wallet logic
-                          showCupertinoModalSheet(
-                            fullscreenDialog: true,
-                            context: context,
-                            builder: (context) => SelectPaymentScreen(),
-                          );
-                        },
-                        child: Text('Fund Wallet'),
-                      )
-                  ),
-                  SizedBox(height: 12),
+                      ),
+                    ),
+                    onPressed: () {
+                      // Add fund wallet logic
+                      showCupertinoModalSheet(
+                        fullscreenDialog: true,
+                        context: context,
+                        builder: (context) => const SelectPaymentScreen(),
+                      );
+                    },
+                    child: const Text('Fund Wallet'),
+                  )),
+                  const SizedBox(height: 12),
                 ],
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             // Text(
             //   'Vote Points Conversion',
             //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -100,46 +107,46 @@ class WalletScreen extends StatelessWidget {
             //   ),
             // ),
             // SizedBox(height: 16),
-            Text(
+            const Text(
               'Recent Activity',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Column(
               children: [
                 for (int i = 0; i < 5; i++)
                   i % 2 == 0
                       ? ActivityItem(
-                    activity: 'Wallet Funded',
-                    points: '+ $i,000 BP',
-                  )
+                          activity: 'Wallet Funded',
+                          points: '+ $i,000 BP',
+                        )
                       : ActivityItem(
-                    activity: 'Wallet Funded',
-                    points: '-$i,000 BP', // Different points for odd items
-                  ),
+                          activity: 'Wallet Funded',
+                          points:
+                              '-$i,000 BP', // Different points for odd items
+                        ),
               ],
             ),
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'Upcoming Activity',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Column(
               children: [
-                for(int i =0; i < 5; i++)
+                for (int i = 0; i < 5; i++)
                   i % 2 == 0
-                      ? ActivityItem(
-                    activity: 'Wallet Funded',
-                    points: '+10,000 BP',
-                  ) : ActivityItem(
-                activity: 'Wallet Funded',
-                points: '+10,000 BP',
-                ),
-
+                      ? const ActivityItem(
+                          activity: 'Wallet Funded',
+                          points: '+10,000 BP',
+                        )
+                      : const ActivityItem(
+                          activity: 'Wallet Funded',
+                          points: '+10,000 BP',
+                        ),
               ],
             ),
-
           ],
         ),
       ),
@@ -147,27 +154,26 @@ class WalletScreen extends StatelessWidget {
   }
 }
 
-class BookDetailsScreen extends StatelessWidget{
+class BookDetailsScreen extends StatelessWidget {
+  const BookDetailsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Text("card");
+    return const Text("card");
   }
-
 }
 
 class ActivityItem extends StatelessWidget {
   final String activity;
   final String points;
 
-
-
-  ActivityItem({required this.activity, required this.points});
+  const ActivityItem({super.key, required this.activity, required this.points});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 8),
-      padding: EdgeInsets.all(16.0),
+      margin: const EdgeInsets.only(top: 8),
+      padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: Colors.grey[200],
         borderRadius: BorderRadius.circular(8.0),
@@ -179,24 +185,28 @@ class ActivityItem extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                    color: Color.fromRGBO(255, 193, 7, 0.3)
-                ),
-                child: Padding(
+                    borderRadius: BorderRadius.circular(50),
+                    color: const Color.fromRGBO(255, 193, 7, 0.3)),
+                child: const Padding(
                   padding: EdgeInsets.all(10),
-                  child: Icon(Icons.compare_arrows,
-                  color: Color.fromARGB(255, 193, 7,7),
+                  child: Icon(
+                    Icons.compare_arrows,
+                    color: Color.fromARGB(255, 193, 7, 7),
                   ),
                 ),
               ),
-              SizedBox(width: 8,),
+              const SizedBox(
+                width: 8,
+              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(activity),
-                  SizedBox(height: 10,),
-                  Text(
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
                     '12:00 AM',
                     style: TextStyle(
                       fontSize: 8,
@@ -207,20 +217,19 @@ class ActivityItem extends StatelessWidget {
             ],
           ),
           Text(points,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
                 color: Colors.green,
-              )
-          ),
+              )),
         ],
       ),
     );
   }
 }
 
-
-
 class SelectPaymentScreen extends StatefulWidget {
+  const SelectPaymentScreen({super.key});
+
   @override
   _SelectPaymentScreenState createState() => _SelectPaymentScreenState();
 }
@@ -232,12 +241,12 @@ class _SelectPaymentScreenState extends State<SelectPaymentScreen> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text('Select Payment Method'),
+        middle: const Text('Select Payment Method'),
         trailing: GestureDetector(
           onTap: () {
             Navigator.of(context).pop();
           },
-          child: Icon(CupertinoIcons.clear_thick),
+          child: const Icon(CupertinoIcons.clear_thick),
         ),
       ),
       child: Center(
@@ -256,7 +265,7 @@ class _SelectPaymentScreenState extends State<SelectPaymentScreen> {
                   });
                 },
               ),
-              SizedBox(height: 6.0),
+              const SizedBox(height: 6.0),
               buildPaymentOption(
                 title: 'Bitpay',
                 value: 'Bitpay',
@@ -267,9 +276,9 @@ class _SelectPaymentScreenState extends State<SelectPaymentScreen> {
                   });
                 },
               ),
-              SizedBox(height: 22.0),
+              const SizedBox(height: 22.0),
               CupertinoButton.filled(
-                child: Text('Continue'),
+                child: const Text('Continue'),
                 onPressed: () {
                   // Add your continue logic here
                 },
@@ -288,7 +297,7 @@ class _SelectPaymentScreenState extends State<SelectPaymentScreen> {
     required ValueChanged<String?> onChanged,
   }) {
     return Container(
-      padding: EdgeInsets.all(12.0),
+      padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
         border: Border.all(
@@ -302,11 +311,11 @@ class _SelectPaymentScreenState extends State<SelectPaymentScreen> {
             height: 24.0,
             width: 24.0,
           ),
-          SizedBox(width: 16.0),
+          const SizedBox(width: 16.0),
           Expanded(
             child: Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16.0,
               ),
             ),
@@ -315,7 +324,7 @@ class _SelectPaymentScreenState extends State<SelectPaymentScreen> {
             value: value,
             groupValue: groupValue,
             onChanged: onChanged,
-            activeColor: Color(0xFF002A5B),
+            activeColor: const Color(0xFF002A5B),
           ),
         ],
       ),

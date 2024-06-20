@@ -1,19 +1,19 @@
 import 'package:ballotchain/screens/splash_screen.dart';
-import 'package:ballotchain/util/api_url.dart';
-import 'package:ballotchain/util/app_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: ' BallotChain',
+      title: 'BallotChain',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -23,14 +23,12 @@ class MyApp extends StatelessWidget {
         minWidth: 450,
         defaultScale: true,
         breakpoints: [
-          ResponsiveBreakpoint.resize(450, name: MOBILE),
-          ResponsiveBreakpoint.autoScale(800, name: TABLET),
-          ResponsiveBreakpoint.autoScale(1000, name: DESKTOP),
+          const ResponsiveBreakpoint.resize(450, name: MOBILE),
+          const ResponsiveBreakpoint.autoScale(800, name: TABLET),
+          const ResponsiveBreakpoint.autoScale(1000, name: DESKTOP),
         ],
       ),
-
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
-
