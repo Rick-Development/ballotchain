@@ -1,8 +1,8 @@
+import 'package:ballotchain/util/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import '../util/api_url.dart';
-import '../util/app_constant.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -106,7 +106,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           },
                           style: ButtonStyle(
                             backgroundColor: WidgetStateProperty.all<Color>(
-                                AppConstants.primaryColor),
+                                ColorConstants.primaryColor),
                             foregroundColor:
                                 WidgetStateProperty.all<Color>(Colors.white),
                             shape:

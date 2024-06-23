@@ -1,3 +1,4 @@
+import 'package:ballotchain/util/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ballotchain/screens/dashboard.dart';
@@ -5,7 +6,6 @@ import 'package:ballotchain/screens/results_screen.dart';
 import 'package:ballotchain/screens/settings_screen.dart';
 import 'package:ballotchain/screens/vote_screen.dart';
 import 'package:ballotchain/screens/wallet_screen.dart';
-import 'package:ballotchain/util/app_constant.dart';
 
 class SideBar extends StatefulWidget {
   const SideBar({super.key});
@@ -22,7 +22,7 @@ class _SideBarState extends State<SideBar> {
         children: [
           UserAccountsDrawerHeader(
             decoration: BoxDecoration(
-              color: AppConstants.primaryColor,
+              color: ColorConstants.primaryColor,
             ),
             accountName: const Text('Mikel O'),
             accountEmail: const Text('mikel.o@example.com'),

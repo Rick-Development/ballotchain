@@ -1,7 +1,5 @@
+import 'package:ballotchain/util/constants/color_constants.dart';
 import 'package:flutter/material.dart';
-
-import '../util/app_constant.dart';
-
 class SecurityScreen extends StatefulWidget {
   const SecurityScreen({super.key});
 
@@ -16,7 +14,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Security'),
-        backgroundColor: AppConstants.primaryColor,
+        backgroundColor: ColorConstants.primaryColor,
         foregroundColor: Colors.white,
       ),
       body: Padding(
@@ -59,7 +57,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                   },
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll<Color>(
-                        AppConstants.primaryColor),
+                        ColorConstants.primaryColor),
                     shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
@@ -124,7 +122,7 @@ class ChangePasswordForm extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor:
-                    AppConstants.primaryColor, // Button background color
+                    ColorConstants.primaryColor, // Button background color
                 padding: const EdgeInsets.symmetric(
                     horizontal: 32.0, vertical: 12.0),
               ),

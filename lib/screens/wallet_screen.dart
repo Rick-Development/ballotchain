@@ -1,8 +1,8 @@
+import 'package:ballotchain/util/constants/color_constants.dart';
 import 'package:cupertino_modal_sheet/cupertino_modal_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ballotchain/util/app_constant.dart';
 import 'package:ballotchain/widgets/bottom_navigation_bar.dart';
 import 'package:ballotchain/widgets/floating_button.dart';
 import 'package:ballotchain/widgets/side_bar.dart';
@@ -15,10 +15,10 @@ class WalletScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Wallet'),
-        backgroundColor: AppConstants.primaryColor,
+        backgroundColor: ColorConstants.primaryColor,
         foregroundColor: Colors.white,
       ),
-      drawer: SideBar(),
+      drawer: const SideBar(),
       floatingActionButton: const CustomFloatingButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomNavBar(

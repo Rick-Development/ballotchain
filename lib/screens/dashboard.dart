@@ -1,10 +1,12 @@
+import 'package:ballotchain/util/constants/color_constants.dart';
 import 'package:ballotchain/widgets/floating_button.dart';
 import 'package:ballotchain/widgets/side_bar.dart';
 import 'package:card_loading/card_loading.dart';
 import 'package:flutter/material.dart';
 import '../util/api_url.dart';
-import '../util/app_constant.dart';
+import '../widgets/activity_item.dart';
 import '../widgets/bottom_navigation_bar.dart';
+import '../widgets/election_card.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -16,7 +18,7 @@ class DashboardScreen extends StatelessWidget {
         title: const Text(
           'BallotChain',
         ),
-        backgroundColor: AppConstants.primaryColor,
+        backgroundColor: ColorConstants.primaryColor,
         foregroundColor: Colors.white,
         // foregroundColor: AppConstants.whiteColor,
       ),
@@ -71,15 +73,15 @@ class DashboardScreen extends StatelessWidget {
                   // Image.network(ApiUrl.testImageUrl2,height: 150,),
                   // Image.network(ApiUrl.testImageUrl3,height: 150,),
                   ElectionCard(
-                    image_url: ApiUrl.testImageUrl3,
+                    imageUrl: ApiUrl.testImageUrl3,
                     date: 'Jan 26, 2024',
                   ),
                   ElectionCard(
-                    image_url: ApiUrl.testImageUrl2,
+                    imageUrl: ApiUrl.testImageUrl2,
                     date: 'Jan 26, 2024',
                   ),
                   ElectionCard(
-                    image_url: ApiUrl.testImageUrl3,
+                    imageUrl: ApiUrl.testImageUrl3,
                     date: 'Jan 26, 2024',
                   ),
                 ],
@@ -96,15 +98,15 @@ class DashboardScreen extends StatelessWidget {
               child: Row(
                 children: [
                   ElectionCard(
-                    image_url: ApiUrl.testImageUrl2,
+                    imageUrl: ApiUrl.testImageUrl2,
                     date: 'Jan 26, 2024',
                   ),
                   ElectionCard(
-                    image_url: ApiUrl.testImageUrl3,
+                    imageUrl: ApiUrl.testImageUrl3,
                     date: 'Jan 26, 2024',
                   ),
                   ElectionCard(
-                    image_url: ApiUrl.testImageUrl2,
+                    imageUrl: ApiUrl.testImageUrl2,
                     date: 'Jan 26, 2024',
                   ),
                 ],
@@ -114,42 +116,6 @@ class DashboardScreen extends StatelessWidget {
             const RecentActivitySection(),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class ElectionCard extends StatelessWidget {
-  final String image_url;
-  final String date;
-
-  const ElectionCard({super.key, required this.image_url, required this.date});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(right: 16),
-      width: 160,
-      height: 100,
-      color: Colors.grey[200],
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.network(
-            image_url,
-            height: 100,
-          ),
-          // Text(
-          //   image_url,
-          //   textAlign: TextAlign.center,
-          //   style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-          // ),
-          // SizedBox(height: 8),
-          // Text(
-          //   date,
-          //   style: TextStyle(fontSize: 12),
-          // ),
-        ],
       ),
     );
   }
@@ -183,27 +149,6 @@ class RecentActivitySection extends StatelessWidget {
             activity: 'Wallet Funded',
             points: '+1500 BP',
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class ActivityItem extends StatelessWidget {
-  final String activity;
-  final String points;
-
-  const ActivityItem({super.key, required this.activity, required this.points});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: 8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(activity),
-          Text(points, style: const TextStyle(fontWeight: FontWeight.bold)),
         ],
       ),
     );

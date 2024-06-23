@@ -1,7 +1,7 @@
+import 'package:ballotchain/util/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ballotchain/util/api_url.dart';
-import 'package:ballotchain/util/app_constant.dart';
 import 'package:ballotchain/widgets/bottom_navigation_bar.dart';
 import 'package:ballotchain/widgets/floating_button.dart';
 import 'package:ballotchain/widgets/side_bar.dart';
@@ -21,7 +21,7 @@ class _VoteScreenState extends State<VoteScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Vote'),
-          backgroundColor: AppConstants.primaryColor,
+          backgroundColor: ColorConstants.primaryColor,
           foregroundColor: Colors.white,
           bottom: const TabBar(
             tabs: <Widget>[
@@ -60,7 +60,7 @@ class _VoteScreenState extends State<VoteScreen> {
             ],
           ),
         ),
-        drawer: SideBar(),
+        drawer: const SideBar(),
         bottomNavigationBar: BottomNavBar(position: 1),
         floatingActionButton: const CustomFloatingButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

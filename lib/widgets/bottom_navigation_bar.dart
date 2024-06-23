@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:ballotchain/util/constants/color_constants.dart';
 import 'package:circular_reveal_animation/circular_reveal_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -11,7 +12,6 @@ import 'package:ballotchain/screens/results_screen.dart';
 import 'package:ballotchain/screens/settings_screen.dart';
 import 'package:ballotchain/screens/vote_screen.dart';
 import 'package:ballotchain/screens/wallet_screen.dart';
-import 'package:ballotchain/util/app_constant.dart';
 
 class BottomNavBar extends StatefulWidget {
   int position = 0;
@@ -154,7 +154,7 @@ class _BottomNavBarState extends State<BottomNavBar>
               ],
             ));
       },
-      backgroundColor: AppConstants.primaryColor,
+      backgroundColor: ColorConstants.primaryColor,
       activeIndex: _bottomNavIndex,
       splashColor: Colors.tealAccent,
       notchAndCornersAnimation: borderRadiusAnimation,

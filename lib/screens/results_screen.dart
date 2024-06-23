@@ -1,6 +1,6 @@
+import 'package:ballotchain/util/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import '../util/app_constant.dart';
 import '../widgets/bottom_navigation_bar.dart';
 import '../widgets/floating_button.dart';
 import '../widgets/side_bar.dart';
@@ -18,10 +18,10 @@ class _ResultScreenState extends State<ResultScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Results'),
-        backgroundColor: AppConstants.primaryColor,
+        backgroundColor: ColorConstants.primaryColor,
         foregroundColor: Colors.white,
       ),
-      drawer: SideBar(),
+      drawer: const SideBar(),
       bottomNavigationBar: BottomNavBar(
         position: 2,
       ),

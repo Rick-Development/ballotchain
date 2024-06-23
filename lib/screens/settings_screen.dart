@@ -2,8 +2,8 @@ import 'package:ballotchain/screens/notification_setting_screen.dart';
 import 'package:ballotchain/screens/profile_screen.dart';
 import 'package:ballotchain/screens/security_screen.dart';
 import 'package:ballotchain/util/api_url.dart';
+import 'package:ballotchain/util/constants/color_constants.dart';
 import 'package:flutter/material.dart';
-import '../util/app_constant.dart';
 import '../widgets/bottom_navigation_bar.dart';
 import '../widgets/floating_button.dart';
 import '../widgets/side_bar.dart';
@@ -16,7 +16,7 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
-        backgroundColor: AppConstants.primaryColor,
+        backgroundColor: ColorConstants.primaryColor,
         foregroundColor: Colors.white,
       ),
       drawer: SideBar(),
@@ -206,7 +206,7 @@ class PersonalDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Personal Details'),
-        backgroundColor: AppConstants.primaryColor,
+        backgroundColor: ColorConstants.primaryColor,
         foregroundColor: Colors.white,
       ),
       body: const Center(child: Text('Personal Details Screen')),
@@ -222,7 +222,7 @@ class SecuritySection extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Security'),
-        backgroundColor: AppConstants.primaryColor,
+        backgroundColor: ColorConstants.primaryColor,
         foregroundColor: Colors.white,
       ),
       body: const Center(child: Text('Security Screen')),
@@ -238,7 +238,7 @@ class LanguageScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Language'),
-        backgroundColor: AppConstants.primaryColor,
+        backgroundColor: ColorConstants.primaryColor,
         foregroundColor: Colors.white,
       ),
       body: const Center(child: Text('Language Screen')),
@@ -254,7 +254,7 @@ class NotificationScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Notification'),
-        backgroundColor: AppConstants.primaryColor,
+        backgroundColor: ColorConstants.primaryColor,
         foregroundColor: Colors.white,
       ),
       body: const Center(child: Text('Notification Screen')),
@@ -270,7 +270,7 @@ class HelpSupportScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Help & Support'),
-        backgroundColor: AppConstants.primaryColor,
+        backgroundColor: ColorConstants.primaryColor,
         foregroundColor: Colors.black,
       ),
       body: const Center(child: Text('Help & Support Screen')),

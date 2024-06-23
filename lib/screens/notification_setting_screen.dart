@@ -1,11 +1,12 @@
+import 'package:ballotchain/util/constants/color_constants.dart';
 import 'package:flutter/material.dart';
-import '../util/app_constant.dart';
 
 class NotificationSettingScreen extends StatefulWidget {
   const NotificationSettingScreen({super.key});
 
   @override
-  State<NotificationSettingScreen> createState() => _NotificationSettingScreenState();
+  State<NotificationSettingScreen> createState() =>
+      _NotificationSettingScreenState();
 }
 
 class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
@@ -17,7 +18,7 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Security'),
-          backgroundColor: AppConstants.primaryColor,
+          backgroundColor: ColorConstants.primaryColor,
           foregroundColor: Colors.white,
         ),
         body: Padding(
