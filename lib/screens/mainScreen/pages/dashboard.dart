@@ -3,10 +3,10 @@ import 'package:ballotchain/widgets/floating_button.dart';
 import 'package:ballotchain/widgets/side_bar.dart';
 import 'package:card_loading/card_loading.dart';
 import 'package:flutter/material.dart';
-import '../util/api_url.dart';
-import '../widgets/activity_item.dart';
-import '../widgets/bottom_navigation_bar.dart';
-import '../widgets/election_card.dart';
+import '../../../util/api_url.dart';
+import '../../../widgets/activity_item.dart';
+import '../../../widgets/bottom_navigation_bar.dart';
+import '../../../widgets/election_card.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});

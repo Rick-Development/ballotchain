@@ -1,7 +1,7 @@
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
+import 'package:ballotchain/screens/intro/onboarding_screen.dart';
+import 'package:ballotchain/util/constants/image_constants.dart';
 import 'package:flutter/material.dart';
-
-import 'dashboard.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -9,16 +9,13 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0XFF081B2D),
-      ),
       body: FlutterSplashScreen.gif(
-        gifPath: 'assets/images/splash.png',
+        gifPath: ImageConstants.splashImage,
         backgroundColor: const Color(0XFF081B2D),
         gifWidth: 269,
         gifHeight: 474,
-        nextScreen: const DashboardScreen(),
-        duration: const Duration(milliseconds: 1500),
+        nextScreen: const OnboardingScreen(),
+        duration: const Duration(milliseconds: 1800),
         onInit: () async {
           debugPrint("onInit");
         },

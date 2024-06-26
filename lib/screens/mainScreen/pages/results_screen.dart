@@ -1,9 +1,9 @@
 import 'package:ballotchain/util/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import '../widgets/bottom_navigation_bar.dart';
-import '../widgets/floating_button.dart';
-import '../widgets/side_bar.dart';
+import '../../../widgets/bottom_navigation_bar.dart';
+import '../../../widgets/floating_button.dart';
+import '../../../widgets/side_bar.dart';
 
 class ResultScreen extends StatefulWidget {
   const ResultScreen({super.key});
