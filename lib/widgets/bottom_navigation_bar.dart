@@ -7,10 +7,10 @@ import 'package:circular_reveal_animation/circular_reveal_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-import 'package:ballotchain/screens/dashboard.dart';
-import 'package:ballotchain/screens/results_screen.dart';
-import 'package:ballotchain/screens/settings_screen.dart';
-import 'package:ballotchain/screens/vote_screen.dart';
+import 'package:ballotchain/screens/mainScreen/pages/dashboard.dart';
+import 'package:ballotchain/screens/mainScreen/pages/results_screen.dart';
+import 'package:ballotchain/screens/mainScreen/pages/settings_screen.dart';
+import 'package:ballotchain/screens/mainScreen/pages/vote_screen.dart';
 import 'package:ballotchain/screens/wallet_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
