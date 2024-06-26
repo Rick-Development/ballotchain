@@ -14,7 +14,7 @@ class ColorConstants {
   static Color textGrey1 = const Color(0XFF797979);
   static Color textGrey2 = const Color(0XFF808080);
   static Color textGrey3 = const Color(0XFFB5B5B5);
-  static Color hintText = const Color(0XFFBBBBBB);
+  // static Color hintText = const Color(0XFFBBBBBB);
   static Color errorText = const Color(0XFFFF0000);
   static Color textBlue = const Color(0xFF172F51);
   static Color textBlue2 = const Color(0XFF4A5568);
