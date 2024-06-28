@@ -1,3 +1,4 @@
+import 'package:ballotchain/screens/auth/email_verification_screen.dart';
 import 'package:ballotchain/screens/auth/login_screen.dart';
 import 'package:ballotchain/util/constants/color_constants.dart';
 import 'package:ballotchain/util/constants/image_constants.dart';
@@ -84,6 +85,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               CustomTextField(
                 label: "Email",
                 controller: _emailController,
+                keyboardType: TextInputType.emailAddress,
                 hintText: "Enter your email",
               ),
               const SizedBox(
@@ -93,6 +95,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 label: "Password",
                 obscureText: !_showPassword,
                 controller: _passwordController,
+                keyboardType: TextInputType.visiblePassword,
                 hintText: "Enter your password",
                 suffixIcon: IconButton(
                   icon: Icon(
@@ -114,13 +117,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               CustomButton(
                 onPressed: () {
-                  // TODO: implement sign in function
-                  // Navigator.pushReplacement(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => const DashboardScreen(),
-                  //   ),
-                  // );
+                  // TODO: implement sign up function
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const EmailVerificationScreen(),
+                    ),
+                  );
                 },
                 label: "Get Started",
               ),
@@ -129,7 +132,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               GestureDetector(
                 onTap: () {
-                  // TODO: implement google sign in
+                  // TODO: implement google sign up
                 },
                 child: Container(
                   height: 47,

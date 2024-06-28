@@ -1,3 +1,4 @@
+import 'package:ballotchain/screens/auth/forgot_password.dart';
 import 'package:ballotchain/screens/auth/sign_up_screen.dart';
 import 'package:ballotchain/screens/mainScreen/pages/dashboard.dart';
 import 'package:ballotchain/util/constants/color_constants.dart';
@@ -75,7 +76,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 CustomTextField(
                   label: "Email",
                   controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
                   hintText: "Enter your email",
+
                 ),
                 const SizedBox(
                   height: 20,
@@ -84,6 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   label: "Password",
                   obscureText: !_showPassword,
                   controller: _passwordController,
+                keyboardType: TextInputType.visiblePassword,
                   hintText: "Enter your password",
                   suffixIcon: IconButton(
                     icon: Icon(
@@ -116,10 +120,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                     TextButton(
-                      // TODO: Implement forgot password onTap
                       onPressed: () {
-                        // Navigator.pushNamed(
-                        //     context, ForgotPasswordScreen.route);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ForgotPasswordScreen(),
+                          ),
+                        );
                       },
                       child: const Text(
                         "Forgot Password",
