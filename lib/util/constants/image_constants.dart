@@ -11,6 +11,14 @@ class ImageConstants {
   static String emailVerificationImage = "$imagePath/email_verification.png";
   static String congratulationsImage = "$imagePath/congratulations.png";
 
+  // election
+  static String bbnOne = "$imagePath/bbn_election_one.png";
+  static String bbnTwo = "$imagePath/bbn_election_two.png";
+  static String aamaOne = "$imagePath/aama_election_one.png";
+  static String aamaTwo = "$imagePath/aama_election_two.png";
+  static String unilagOne = "$imagePath/unilag_election_one.png";
+  static String unilagTwo = "$imagePath/unilag_election_two.png";
+
   //! Icons
   static String googleIcon = "$iconPath/google_icon.png";
   static String warningIcon = "$iconPath/warning_icon.png";

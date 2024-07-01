@@ -1,4 +1,5 @@
 import 'package:ballotchain/util/constants/color_constants.dart';
+import 'package:ballotchain/util/constants/image_constants.dart';
 import 'package:ballotchain/widgets/floating_button.dart';
 import 'package:ballotchain/widgets/side_bar.dart';
 import 'package:card_loading/card_loading.dart';
@@ -73,16 +74,19 @@ class DashboardScreen extends StatelessWidget {
                   // Image.network(ApiUrl.testImageUrl2,height: 150,),
                   // Image.network(ApiUrl.testImageUrl3,height: 150,),
                   ElectionCard(
-                    imageUrl: ApiUrl.testImageUrl3,
-                    date: 'Jan 26, 2024',
+                    imageUrl: ImageConstants.bbnOne,
+                    electionTitle: "Big brother Naija season 7",
+                    date: 'Week 1 Voting starts: Jan 26, 2024',
                   ),
                   ElectionCard(
-                    imageUrl: ApiUrl.testImageUrl2,
-                    date: 'Jan 26, 2024',
+                    imageUrl: ImageConstants.aamaOne,
+                    electionTitle: "AMMA Awards 2024",
+                    date: 'Week 1 Voting starts: Jan 26, 2024',
                   ),
                   ElectionCard(
-                    imageUrl: ApiUrl.testImageUrl3,
-                    date: 'Jan 26, 2024',
+                    imageUrl: ImageConstants.unilagOne,
+                    electionTitle: "Unilag SUG President Vote",
+                    date: 'Voting starts: Jan 26, 2024',
                   ),
                 ],
               ),
@@ -98,16 +102,19 @@ class DashboardScreen extends StatelessWidget {
               child: Row(
                 children: [
                   ElectionCard(
-                    imageUrl: ApiUrl.testImageUrl2,
-                    date: 'Jan 26, 2024',
+                    imageUrl: ImageConstants.bbnTwo,
+                    electionTitle: "Big brother Naija season 7",
+                    date: 'Week 1 Voting starts: Jan 26, 2024',
                   ),
                   ElectionCard(
-                    imageUrl: ApiUrl.testImageUrl3,
-                    date: 'Jan 26, 2024',
+                    imageUrl: ImageConstants.aamaTwo,
+                    electionTitle: "AMMA Awards 2024",
+                    date: 'Week 1 Voting starts: Jan 26, 2024',
                   ),
                   ElectionCard(
-                    imageUrl: ApiUrl.testImageUrl2,
-                    date: 'Jan 26, 2024',
+                    imageUrl: ImageConstants.unilagTwo,
+                    electionTitle: "Unilag SUG President Vote",
+                    date: 'Voting starts: Jan 26, 2024',
                   ),
                 ],
               ),
